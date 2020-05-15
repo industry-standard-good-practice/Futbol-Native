@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "futbolApp-v0.01",
-    "slug": "futbolApp-v0.01",
+    "name": "Futbol-Native",
+    "slug": "Futbol-Native",
     "platforms": [
       "ios",
       "android",
@@ -23,6 +23,24 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "packagerOpts": {
+      "config": "metro.config.js",
+      "sourceExts": [
+        "expo.ts",
+        "expo.tsx",
+        "expo.js",
+        "expo.jsx",
+        "ts",
+        "tsx",
+        "js",
+        "jsx",
+        "json",
+        "wasm",
+        "svg",
+        "svgx"
+      ],
+      "transformer": "node_modules/react-native-svg-transformer/index.js"
     }
   }
 }
