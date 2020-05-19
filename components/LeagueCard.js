@@ -1,10 +1,9 @@
 import React, { useState, useCallback } from 'react';
 import {StyleSheet, View, FlatList, Dimensions} from 'react-native';
 import {BoxShadow} from 'react-native-shadow';
-import COLORS from '../global-styles/Colors.js';
 import LeagueTopper from '../components/LeagueTopper.js';
 import Matchup from '../components/Matchup';
-import FavCardTabView from './FavCardTabView.js';
+import {v4 as uuidv4} from 'uuid'
 
 const width = Dimensions.get('window').width;
 const cardWidth = width-32;
@@ -20,7 +19,7 @@ const useComponentSize = () => {
     return [size, onLayout];
 };
 
-const FavCard = ({leagueTitle, leagueImage, homeLineup, awayLineup, matchupData}) => {
+const LeagueCard = ({leagueTitle, leagueImage, matchupData}) => {
 
     const [size, onLayout] = useComponentSize();
 
@@ -44,17 +43,20 @@ const FavCard = ({leagueTitle, leagueImage, homeLineup, awayLineup, matchupData}
             <View style={styles.favCard} onLayout={onLayout}>
                 <View style={styles.favCardHeadContain}>
                     <LeagueTopper leagueText={leagueTitle} leagueImage={leagueImage}/>
-                    <Matchup 
-                        homeTeam={matchupData.homeTeam}
-                        timeScore={matchupData.timeScore}
-                        awayTeam={matchupData.awayTeam}
-                    />
                 </View>
-                <FavCardTabView
-                    cardWidth={cardWidth}
-                    cardHeight={size.height}
-                    homeLineup={homeLineup}
-                    awayLineup={awayLineup}
+                <FlatList 
+                    style={styles.flatList}
+                    listKey={uuidv4()}
+                    data={matchupData}
+                    renderItem={({item}) => (
+                        <View style={{marginBottom: 10, overflow:"visible", width: cardWidth}}>
+                            <Matchup
+                                homeTeam={item.homeTeam}
+                                awayTeam={item.awayTeam}
+                                timeScore={item.timeScore}
+                            />
+                        </View>
+                    )}
                 />
             </View>
         </BoxShadow>
@@ -73,42 +75,19 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
     },
     favCardHeadContain: {
-        backgroundColor: COLORS.primary03,
         width: '100%',
     },
-    leagueTopper: {
-        flexDirection: "row",
+    flatList: {
+        flexGrow: 1,
         alignItems: 'center',
-        justifyContent: 'space-between',
-        margin: 16,
+        overflow: "visible",
+        justifyContent: 'flex-start',
     },
     leagueLogoImage: {
         width: 20,
         height: 20,
         marginRight: 5,
     },
-    mainContain: {
-        alignItems: 'center',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
-    middleContain: {
-        paddingHorizontal: 20,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    leftContain: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-    },
-    rightContain: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-    },
 });
 
-export default FavCard;
+export default LeagueCard;

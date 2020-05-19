@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {Text} from 'react-native';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
+import COLORS from '../global-styles/Colors.js';
 
 const fetchFonts = () => {
     return Font.loadAsync({
@@ -23,7 +24,7 @@ const RecText = (props) => {
     }
 
     return (
-        <Text style={[{fontFamily: 'recursive-regular', ...props.style}]}>
+        <Text style={[{fontFamily: 'recursive-regular', fontSize: 14, color: COLORS.gray01, ...props.style}]}>
             {props.children}
         </Text>
     );
