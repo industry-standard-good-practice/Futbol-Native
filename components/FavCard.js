@@ -30,7 +30,7 @@ const FavCard = ({leagueTitle, leagueImage, homeLineup, awayLineup, matchupData}
     };
 
     return (
-        <BoxShadow setting={shadowOpt}> 
+        <BoxShadow setting={shadowOpt}>
             <View style={styles.favCard} onLayout={onLayout}>
                 <View style={styles.favCardHeadContain}>
                     <LeagueTopper leagueText={leagueTitle} leagueImage={leagueImage}/>
