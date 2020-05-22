@@ -16,7 +16,7 @@ const RecText = (props) => {
 
     if (!dataLoaded) {
         return (
-            <AppLoading 
+            <AppLoading
                 startAsync={fetchFonts}
                 onFinish={() => setDataLoaded(true)}
             />

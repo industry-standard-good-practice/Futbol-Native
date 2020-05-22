@@ -3,21 +3,11 @@ import {StyleSheet, View, FlatList, Dimensions} from 'react-native';
 import {BoxShadow} from 'react-native-shadow';
 import LeagueTopper from '../components/LeagueTopper.js';
 import Matchup from '../components/Matchup';
-import {v4 as uuidv4} from 'uuid'
+import {v4 as uuidv4} from 'uuid';
+import useComponentSize from '../functions/useComponentSize.js';
 
 const width = Dimensions.get('window').width;
 const cardWidth = width-32;
-
-const useComponentSize = () => {
-    const [size,setSize] = useState({height: 360});
-
-    const onLayout = useCallback(event => {
-        const { width, height } = event.nativeEvent.layout;
-        setSize({ width, height });
-    }, []);
-    
-    return [size, onLayout];
-};
 
 const LeagueCard = ({leagueTitle, leagueImage, matchupData}) => {
 
@@ -39,7 +29,7 @@ const LeagueCard = ({leagueTitle, leagueImage, matchupData}) => {
     };
 
     return (
-        <BoxShadow setting={shadowOpt}> 
+        <BoxShadow setting={shadowOpt}>
             <View style={styles.favCard} onLayout={onLayout}>
                 <View style={styles.favCardHeadContain}>
                     <LeagueTopper leagueText={leagueTitle} leagueImage={leagueImage}/>

@@ -9,7 +9,7 @@ const Matchup = ({homeTeam, awayTeam, timeScore}) => {
         <View style={styles.mainContain}>
             <View style={styles.leftContain}>
                 <RecText style={typeStyles.p2}>{homeTeam.name}</RecText>
-                <Image 
+                <Image
                     style={styles.crestLeft}
                     source={homeTeam.crest}
                 />
@@ -18,7 +18,7 @@ const Matchup = ({homeTeam, awayTeam, timeScore}) => {
                 <RecText style={typeStyles.p1}>{timeScore}</RecText>
             </View>
             <View style={styles.rightContain}>
-                <Image 
+                <Image
                     style={styles.crestRight}
                     source={awayTeam.crest}
                 />

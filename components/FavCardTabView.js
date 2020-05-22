@@ -4,19 +4,9 @@ import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import COLORS from '../global-styles/Colors.js';
 import RecText from './RecText.js';
 import LineupText from './LineupText';
+import useComponentSize from '../functions/useComponentSize.js';
 
 const initialLayout = { width: 360, height: 360 };
-
-const useComponentSize = () => {
-  const [size,setSize] = useState({height: 360});
-
-  const onLayout = useCallback(event => {
-      const { width, height } = event.nativeEvent.layout;
-      setSize({ width, height });
-  }, []);
-  
-  return [size, onLayout];
-};
 
 const FavCardTabView = ({cardWidth, homeLineup, awayLineup}) => {
   const [size, onLayout] = useComponentSize();
@@ -42,8 +32,8 @@ const FavCardTabView = ({cardWidth, homeLineup, awayLineup}) => {
 
   return (
     <TabView
-      renderTabBar={props => 
-        <TabBar 
+      renderTabBar={props =>
+        <TabBar
           {...props}
           indicatorStyle={{backgroundColor: COLORS.primary01, height: 4}}
           indicatorContainerStyle={{marginLeft: 8}}

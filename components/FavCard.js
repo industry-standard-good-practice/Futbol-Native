@@ -5,20 +5,10 @@ import COLORS from '../global-styles/Colors.js';
 import LeagueTopper from '../components/LeagueTopper.js';
 import Matchup from '../components/Matchup';
 import FavCardTabView from './FavCardTabView.js';
+import useComponentSize from '../functions/useComponentSize.js';
 
 const width = Dimensions.get('window').width;
 const cardWidth = width-32;
-
-const useComponentSize = () => {
-    const [size,setSize] = useState({height: 360});
-
-    const onLayout = useCallback(event => {
-        const { width, height } = event.nativeEvent.layout;
-        setSize({ width, height });
-    }, []);
-    
-    return [size, onLayout];
-};
 
 const FavCard = ({leagueTitle, leagueImage, homeLineup, awayLineup, matchupData}) => {
 

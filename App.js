@@ -62,7 +62,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <StatusBar translucent={true} animated={true} backgroundColor={'rgba(0,0,0,0)'} barStyle={'dark-content'} />
-      <FlatList 
+      <FlatList
         contentContainerStyle={styles.flatList}
         decelerationRate={0.998}
         data={items}
