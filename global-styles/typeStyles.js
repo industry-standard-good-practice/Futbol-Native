@@ -2,13 +2,13 @@ import { StyleSheet } from 'react-native';
 
 const typeStyles = StyleSheet.create ({
     p1: {
-        fontSize: 12,
+        fontSize: 14,
     },
     p2: {
-        fontSize: 10,
+        fontSize: 12,
     },
     p3: {
-        fontSize: 9,
+        fontSize: 10,
     },
 });
 
