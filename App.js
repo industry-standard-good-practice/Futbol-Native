@@ -1,8 +1,7 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, {useEffect} from 'react';
+import { View, Text, StatusBar } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import HomeScreen from './home-stack/HomeScreen';
 import HomeTabView from './components/HomeTabView';
 
 class DetailsScreen extends React.Component {

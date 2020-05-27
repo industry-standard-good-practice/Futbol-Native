@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 
 const useComponentSize = () => {
     const [size,setSize] = useState({height: 360});
@@ -6,7 +6,7 @@ const useComponentSize = () => {
     const onLayout = useCallback(event => {
         const { width, height } = event.nativeEvent.layout;
         setSize({ width, height });
-    }, []);
+    }, [size]);
     
     return [size, onLayout];
 };

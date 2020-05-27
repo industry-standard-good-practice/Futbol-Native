@@ -1,19 +1,16 @@
 import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
-import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
+import { TabView, SceneMap, TabBar, ScrollPager } from 'react-native-tab-view';
 import COLORS from '../global-styles/Colors.js';
 import RecText from './RecText.js';
 import HomeScreen from '../home-stack/HomeScreen';
-import { typeStyles } from '../global-styles/typeStyles';
 
 const width = Dimensions.get('window').width;
 
 const HomeTabView = () => {
 
   const FirstRoute = () => (
-    <View style={{zIndex: 100}}>
-      <HomeScreen/>
-    </View>
+    <HomeScreen/>
   );
   
   const SecondRoute = () => (
@@ -24,23 +21,34 @@ const HomeTabView = () => {
     <HomeScreen/>
   );
 
+  const FourthRoute = () => (
+    <HomeScreen/>
+  );
+
+  const FifthRoute = () => (
+    <HomeScreen/>
+  );
+
   const [index, setIndex] = React.useState(0);
 
   const [routes] = React.useState([
     { key: 'first', title: 'YESTERDAY' },
     { key: 'second', title: 'TODAY' },
     { key: 'third', title: 'TOMORROW' },
+    { key: 'fourth', title: 'TOMORROW' },
+    { key: 'fifth', title: 'TOMORROW' },
   ]);
 
   const renderScene = SceneMap({
     first: FirstRoute,
     second: SecondRoute,
     third: ThirdRoute,
+    fourth: FourthRoute,
+    fifth: FifthRoute,
   });
 
   return (
     <TabView
-      lazy={false}
       renderTabBar={props =>
         <View style={styles.tabWrap}>
           <TabBar
@@ -49,6 +57,9 @@ const HomeTabView = () => {
             style={styles.barStyle}
             inactiveColor={COLORS.primary02}
             activeColor={COLORS.primary01}
+            tabStyle={{width:100}}
+            scrollEnabled={true}
+            bounces={true}
             renderLabel={({ route, focused, color }) => (
               <RecText style={{ color }}>
                 {route.title}

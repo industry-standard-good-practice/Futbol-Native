@@ -54,6 +54,35 @@ const HomeScreen = () => {
           {key: uuidv4(), homeTeam:{name: 'West Ham', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '11:00 AM', awayTeam: {name: 'Tottenham', crest:(require('../assets/card/bumnalCrest.png'))}},
         ]}
       />},
+      {key: uuidv4(), card: <LeagueCard
+        leagueTitle='Premier League'
+        leagueImage={LEAGUEIMAGES.premImage}
+        matchupData={[
+          {key: uuidv4(), homeTeam:{name: 'Watford', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '9:00 AM', awayTeam: {name: 'Chelsea', crest:(require('../assets/card/bumnalCrest.png'))}},
+          {key: uuidv4(), homeTeam:{name: 'West Ham', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '11:00 AM', awayTeam: {name: 'Tottenham', crest:(require('../assets/card/bumnalCrest.png'))}},
+        ]}
+      />},{key: uuidv4(), card: <LeagueCard
+        leagueTitle='Premier League'
+        leagueImage={LEAGUEIMAGES.premImage}
+        matchupData={[
+          {key: uuidv4(), homeTeam:{name: 'Watford', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '9:00 AM', awayTeam: {name: 'Chelsea', crest:(require('../assets/card/bumnalCrest.png'))}},
+          {key: uuidv4(), homeTeam:{name: 'West Ham', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '11:00 AM', awayTeam: {name: 'Tottenham', crest:(require('../assets/card/bumnalCrest.png'))}},
+        ]}
+      />},{key: uuidv4(), card: <LeagueCard
+        leagueTitle='Premier League'
+        leagueImage={LEAGUEIMAGES.premImage}
+        matchupData={[
+          {key: uuidv4(), homeTeam:{name: 'Watford', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '9:00 AM', awayTeam: {name: 'Chelsea', crest:(require('../assets/card/bumnalCrest.png'))}},
+          {key: uuidv4(), homeTeam:{name: 'West Ham', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '11:00 AM', awayTeam: {name: 'Tottenham', crest:(require('../assets/card/bumnalCrest.png'))}},
+        ]}
+      />},{key: uuidv4(), card: <LeagueCard
+        leagueTitle='Premier League'
+        leagueImage={LEAGUEIMAGES.premImage}
+        matchupData={[
+          {key: uuidv4(), homeTeam:{name: 'Watford', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '9:00 AM', awayTeam: {name: 'Chelsea', crest:(require('../assets/card/bumnalCrest.png'))}},
+          {key: uuidv4(), homeTeam:{name: 'West Ham', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '11:00 AM', awayTeam: {name: 'Tottenham', crest:(require('../assets/card/bumnalCrest.png'))}},
+        ]}
+      />},
     ])
   }
 
@@ -61,7 +90,7 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar translucent={true} animated={true} backgroundColor={'rgba(0,0,0,0)'} barStyle={'dark-content'} />
+      <StatusBar translucent={true} animated={true} backgroundColor={'rgba(0,0,0,0)'} barStyle={'dark-content'}/>
       <FlatList
         contentContainerStyle={styles.flatList}
         decelerationRate={0.998}
@@ -90,7 +119,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     paddingTop: 120,
     paddingBottom: 40,
-  }
+  },
 });
 
 export default HomeScreen;
