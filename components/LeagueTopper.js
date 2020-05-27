@@ -1,8 +1,10 @@
 import React from 'react';
-import {StyleSheet, View, Image, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Image} from 'react-native';
 import RecText from '../components/RecText.js'
 import {typeStyles} from '../global-styles/typeStyles.js'
 import ExpandLess from '../assets/icons/ExpandLess.svg'
+import Ripple from 'react-native-material-ripple'
+import COLORS from '../global-styles/Colors'
 
 const LeagueTopper = ({leagueText, leagueImage}) => {
     return (
@@ -14,9 +16,14 @@ const LeagueTopper = ({leagueText, leagueImage}) => {
                 />
                 <RecText style={typeStyles.p3}>{leagueText}</RecText>
             </View>
-             <TouchableOpacity style={{alignSelf: 'flex-end'}}>
+            <Ripple 
+                style={{alignSelf: 'flex-end'}}
+                rippleOverflow={true}
+                rippleSize={80}
+                rippleColor={COLORS.primary01}
+            >
                 <ExpandLess />
-            </TouchableOpacity>
+            </Ripple>
         </View>
     );
 };

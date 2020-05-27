@@ -1,12 +1,25 @@
 import React from 'react';
-import {StyleSheet, View, Image} from 'react-native';
+import {StyleSheet, View, Image, TouchableOpacity} from 'react-native';
 import RecText from '../components/RecText.js'
 import {typeStyles} from '../global-styles/typeStyles.js'
+import {useNavigation} from 'react-navigation-hooks'
+import Ripple from 'react-native-material-ripple'
+import COLORS from '../global-styles/Colors'
 
 const Matchup = ({homeTeam, awayTeam, timeScore}) => {
 
+    const { navigate } = useNavigation();
+
     return (
-        <View style={styles.mainContain}>
+        <Ripple 
+            style={styles.mainContain}
+            rippleOverflow={true}
+            rippleSize={100}
+            rippleColor={COLORS.primary01}
+            onPress={() => {
+                navigate('Details');
+            }}
+        >
             <View style={styles.leftContain}>
                 <RecText style={typeStyles.p2}>{homeTeam.name}</RecText>
                 <Image
@@ -24,7 +37,7 @@ const Matchup = ({homeTeam, awayTeam, timeScore}) => {
                 />
                 <RecText style={typeStyles.p2}>{awayTeam.name}</RecText>
             </View>
-        </View>
+        </Ripple>
     );
 };
 

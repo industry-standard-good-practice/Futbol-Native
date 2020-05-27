@@ -10,6 +10,9 @@ const typeStyles = StyleSheet.create ({
     p3: {
         fontSize: 10,
     },
+    h4 :{
+        fontSize: 18,
+    },
 });
 
 export { typeStyles }

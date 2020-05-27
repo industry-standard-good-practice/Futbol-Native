@@ -1,5 +1,5 @@
-import React, { useState, useCallback } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import COLORS from '../global-styles/Colors.js';
 import RecText from './RecText.js';
