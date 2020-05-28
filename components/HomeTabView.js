@@ -1,16 +1,15 @@
 import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
-import { TabView, SceneMap, TabBar, ScrollPager } from 'react-native-tab-view';
+import { TabView, TabBar } from 'react-native-tab-view';
 import COLORS from '../global-styles/Colors.js';
 import RecTextMedium from './RecTextBold.js';
-import HomeScreen from '../home-stack/HomeScreen';
-import typeStyles from '../global-styles/typeStyles';
+import HomeScreen from './HomeCards';
 
 const width = Dimensions.get('window').width;
 
 const HomeTabView = () => {
 
-  const [index, setIndex] = React.useState(0);
+  const [index, setIndex] = React.useState(2);
 
   const [routes] = React.useState([
     { key: 'first', title: 'YESTERDAY' },
@@ -77,12 +76,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   barStyle: {
-    width: width-80,
+    width: width-120,
     backgroundColor: null,
     marginTop: 40,
     shadowColor: 'transparent',
     elevation: 0,
     zIndex: 0,
+    overflow: 'hidden'
   },
 });
 

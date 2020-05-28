@@ -1,102 +1,25 @@
-import React, {useState} from 'react';
-import { StyleSheet, View, FlatList, StatusBar } from 'react-native';
-import FavCard from '../components/FavCard';
-import LeagueCard from '../components/LeagueCard';
-import LEAGUEIMAGES from '../global-styles/leagueImages.js';
-import {v4 as uuidv4} from 'uuid'
+import React from 'react';
+import { StyleSheet, View, StatusBar, Dimensions } from 'react-native';
+import HomeTabView from '../components/HomeTabView';
+import SearchIcon from '../assets/icons/SearchIcon.svg';
+import SettingIcon from '../assets/icons/SettingIcon.svg';
+import COLORS from '../global-styles/Colors';
+import Ripple from 'react-native-material-ripple';
+
+const width = Dimensions.get('window').width;
 
 const HomeScreen = () => {
-
-  const homeLineup = [
-    {shirt: '1', name: 'David De Gea', key: uuidv4()},
-    {shirt: '2', name: 'Victor Lindelöf', key: uuidv4()},
-    {shirt: '5', name: 'Harry Maguire', key: uuidv4()},
-    {shirt: '6', name: 'Paul Pogba', key: uuidv4()},
-    {shirt: '9', name: 'Anthony Martial', key: uuidv4()},
-    {shirt: '10', name: 'Marcus Rashford', key: uuidv4()},
-    {shirt: '17', name: 'Fred', key: uuidv4()},
-    {shirt: '21', name: 'Dan James', key: uuidv4()},
-    {shirt: '23', name: 'Luke Shaw', key: uuidv4()},
-    {shirt: '29', name: 'Wan-Bissaka', key: uuidv4()},
-    {shirt: '39', name: 'Scott McTominay', key: uuidv4()},
-  ]
-
-  const awayLineup = [
-    {shirt: '1', name: 'Bernd Leno', key: uuidv4()},
-    {shirt: '2', name: 'Hector Bellerin', key: uuidv4()},
-    {shirt: '3', name: 'Kieren Tierney', key: uuidv4()},
-    {shirt: '5', name: 'Sokratis', key: uuidv4()},
-    {shirt: '9', name: 'Lacazette', key: uuidv4()},
-    {shirt: '10', name: 'Mesut Özil', key: uuidv4()},
-    {shirt: '11', name: 'Lucas Torreira', key: uuidv4()},
-    {shirt: '14', name: 'Aubameyang', key: uuidv4()},
-    {shirt: '19', name: 'Nicolas Pepe', key: uuidv4()},
-    {shirt: '21', name: 'Calumn Chambers', key: uuidv4()},
-    {shirt: '29', name: 'Matteo Guendouzi', key: uuidv4()},
-  ]
-
-  const leagues = () => {
-    return([
-      {key: uuidv4(), card: <FavCard
-        leagueTitle='Dylan is stupid'
-        leagueImage={LEAGUEIMAGES.premImage}
-        homeLineup={homeLineup}
-        awayLineup={awayLineup}
-        matchupData={
-          {key: uuidv4(), homeTeam:{name: 'Man United', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '9:00 AM', awayTeam: {name: 'Arsenal', crest:(require('../assets/card/bumnalCrest.png'))}}
-        }
-      />},
-      {key: uuidv4(), card: <LeagueCard
-        leagueTitle='Premier League'
-        leagueImage={LEAGUEIMAGES.premImage}
-        matchupData={[
-          {key: uuidv4(), homeTeam:{name: 'Watford', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '9:00 AM', awayTeam: {name: 'Chelsea', crest:(require('../assets/card/bumnalCrest.png'))}},
-          {key: uuidv4(), homeTeam:{name: 'West Ham', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '11:00 AM', awayTeam: {name: 'Tottenham', crest:(require('../assets/card/bumnalCrest.png'))}},
-        ]}
-      />},
-      {key: uuidv4(), card: <LeagueCard
-        leagueTitle='Premier League'
-        leagueImage={LEAGUEIMAGES.premImage}
-        matchupData={[
-          {key: uuidv4(), homeTeam:{name: 'Watford', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '9:00 AM', awayTeam: {name: 'Chelsea', crest:(require('../assets/card/bumnalCrest.png'))}},
-          {key: uuidv4(), homeTeam:{name: 'West Ham', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '11:00 AM', awayTeam: {name: 'Tottenham', crest:(require('../assets/card/bumnalCrest.png'))}},
-        ]}
-      />},{key: uuidv4(), card: <LeagueCard
-        leagueTitle='Premier League'
-        leagueImage={LEAGUEIMAGES.premImage}
-        matchupData={[
-          {key: uuidv4(), homeTeam:{name: 'Watford', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '9:00 AM', awayTeam: {name: 'Chelsea', crest:(require('../assets/card/bumnalCrest.png'))}},
-          {key: uuidv4(), homeTeam:{name: 'West Ham', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '11:00 AM', awayTeam: {name: 'Tottenham', crest:(require('../assets/card/bumnalCrest.png'))}},
-        ]}
-      />},{key: uuidv4(), card: <LeagueCard
-        leagueTitle='Premier League'
-        leagueImage={LEAGUEIMAGES.premImage}
-        matchupData={[
-          {key: uuidv4(), homeTeam:{name: 'Watford', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '9:00 AM', awayTeam: {name: 'Chelsea', crest:(require('../assets/card/bumnalCrest.png'))}},
-          {key: uuidv4(), homeTeam:{name: 'West Ham', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '11:00 AM', awayTeam: {name: 'Tottenham', crest:(require('../assets/card/bumnalCrest.png'))}},
-        ]}
-      />},{key: uuidv4(), card: <LeagueCard
-        leagueTitle='Premier League'
-        leagueImage={LEAGUEIMAGES.premImage}
-        matchupData={[
-          {key: uuidv4(), homeTeam:{name: 'Watford', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '9:00 AM', awayTeam: {name: 'Chelsea', crest:(require('../assets/card/bumnalCrest.png'))}},
-          {key: uuidv4(), homeTeam:{name: 'West Ham', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '11:00 AM', awayTeam: {name: 'Tottenham', crest:(require('../assets/card/bumnalCrest.png'))}},
-        ]}
-      />},
-    ])
-  }
-
-  const items = leagues();
 
   return (
     <View style={styles.container}>
       <StatusBar translucent={true} animated={true} backgroundColor={'rgba(0,0,0,0)'} barStyle={'dark-content'}/>
-      <FlatList
-        contentContainerStyle={styles.flatList}
-        decelerationRate={0.998}
-        data={items}
-        renderItem={({item}) => <View>{item.card}</View>}
-      />
+      <Ripple style={styles.iconContainLeft} rippleColor={COLORS.primary01} rippleOverflow={true}>
+        <SearchIcon style={styles.icon}/>
+      </Ripple>
+      <Ripple style={styles.iconContainRight} rippleColor={COLORS.primary01} rippleOverflow={true}>
+        <SettingIcon style={styles.icon}/>
+      </Ripple>
+      <HomeTabView />
     </View>
   );
 }
@@ -112,13 +35,42 @@ const styles = StyleSheet.create({
     padding: 0,
     margin: 0,
   },
-  flatList: {
-    flexGrow: 1,
+  wholeIconContain: {
+    width: width,
+    zIndex: 9,
+    position: 'absolute',
+    top: 45,
+    left: 0,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
+  },
+  icon: {
+    color: COLORS.primary01,
+  },
+  iconContainLeft: {
+    zIndex: 9,
+    position: 'absolute',
+    top: 45,
+    left: 15,
+    width: 40,
+    height: 40,
     alignItems: 'center',
-    overflow: 'visible',
-    justifyContent: 'flex-start',
-    paddingTop: 120,
-    paddingBottom: 40,
+    justifyContent: 'center',
+    backgroundColor: COLORS.primary02,
+    borderRadius: 40,
+  },
+  iconContainRight: {
+    zIndex: 9,
+    position: 'absolute',
+    top: 45,
+    right: 15,
+    width: 40,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: COLORS.primary02,
+    borderRadius: 40,
   },
 });
 

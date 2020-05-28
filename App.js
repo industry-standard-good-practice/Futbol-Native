@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
-import { View, Text, StatusBar } from 'react-native';
+import { View, Text } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import HomeTabView from './components/HomeTabView';
+import HomeScreen from './home-stack/HomeScreen';
 
 class DetailsScreen extends React.Component {
   render() {
@@ -16,7 +16,7 @@ class DetailsScreen extends React.Component {
 
 const AppNavigator = createStackNavigator(
   {
-    Home: HomeTabView,
+    Home: HomeScreen,
     Details: DetailsScreen,
   },
   {
