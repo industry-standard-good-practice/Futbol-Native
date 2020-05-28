@@ -92,6 +92,7 @@ const HomeCards = () => {
     <View style={styles.container}>
       <FlatList
         contentContainerStyle={styles.flatList}
+        showsVerticalScrollIndicator={false}
         decelerationRate={0.998}
         data={items}
         renderItem={({item}) => <View>{item.card}</View>}
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     overflow: 'visible',
     justifyContent: 'flex-start',
-    paddingTop: 120,
+    paddingTop: 130,
     paddingBottom: 40,
   },
 });

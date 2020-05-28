@@ -6,8 +6,6 @@ import SettingIcon from '../assets/icons/SettingIcon.svg';
 import COLORS from '../global-styles/Colors';
 import Ripple from 'react-native-material-ripple';
 
-const width = Dimensions.get('window').width;
-
 const HomeScreen = () => {
 
   return (
@@ -19,7 +17,7 @@ const HomeScreen = () => {
       <Ripple style={styles.iconContainRight} rippleColor={COLORS.primary01} rippleOverflow={true}>
         <SettingIcon style={styles.icon}/>
       </Ripple>
-      <HomeTabView />
+      <HomeTabView/>
     </View>
   );
 }
@@ -35,16 +33,6 @@ const styles = StyleSheet.create({
     padding: 0,
     margin: 0,
   },
-  wholeIconContain: {
-    width: width,
-    zIndex: 9,
-    position: 'absolute',
-    top: 45,
-    left: 0,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 10,
-  },
   icon: {
     color: COLORS.primary01,
   },
@@ -59,6 +47,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: COLORS.primary02,
     borderRadius: 40,
+    zIndex: 1,
   },
   iconContainRight: {
     zIndex: 9,
@@ -71,6 +60,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: COLORS.primary02,
     borderRadius: 40,
+    zIndex: 1,
   },
 });
 

@@ -17,7 +17,7 @@ const Matchup = ({homeTeam, awayTeam, timeScore}) => {
             rippleSize={100}
             rippleColor={COLORS.primary01}
             onPress={() => {
-                navigate('Details');
+                navigate('News');
             }}
         >
             <View style={styles.leftContain}>

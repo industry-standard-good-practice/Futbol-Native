@@ -1,9 +1,12 @@
 import React from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
+import { View, StyleSheet, Dimensions, StatusBar } from 'react-native';
 import { TabView, TabBar } from 'react-native-tab-view';
 import COLORS from '../global-styles/Colors.js';
 import RecTextMedium from './RecTextBold.js';
 import HomeScreen from './HomeCards';
+import SearchIcon from '../assets/icons/SearchIcon.svg';
+import SettingIcon from '../assets/icons/SettingIcon.svg';
+import Ripple from 'react-native-material-ripple';
 
 const width = Dimensions.get('window').width;
 
@@ -40,6 +43,13 @@ const HomeTabView = () => {
     <TabView
       renderTabBar={props =>
         <View style={styles.tabWrap}>
+          <StatusBar translucent={true} animated={true} backgroundColor={'rgba(0,0,0,0)'} barStyle={'dark-content'}/>
+          <Ripple style={styles.iconContainLeft} rippleColor={COLORS.primary01} rippleOverflow={true}>
+            <SearchIcon style={styles.icon}/>
+          </Ripple>
+          <Ripple style={styles.iconContainRight} rippleColor={COLORS.primary01} rippleOverflow={true}>
+            <SettingIcon style={styles.icon}/>
+          </Ripple>
           <TabBar
             {...props}
             indicatorStyle={{backgroundColor: COLORS.primary01, height: 4}}
@@ -77,12 +87,42 @@ const styles = StyleSheet.create({
   },
   barStyle: {
     width: width-120,
+    height: 50,
     backgroundColor: null,
-    marginTop: 40,
+    marginTop: 50,
     shadowColor: 'transparent',
     elevation: 0,
     zIndex: 0,
     overflow: 'hidden'
+  },
+  icon: {
+    color: COLORS.primary01,
+  },
+  iconContainLeft: {
+    zIndex: 9,
+    position: 'absolute',
+    top: 55,
+    left: 18,
+    width: 40,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: COLORS.primary02,
+    borderRadius: 40,
+    zIndex: 0,
+  },
+  iconContainRight: {
+    zIndex: 9,
+    position: 'absolute',
+    top: 55,
+    right: 18,
+    width: 40,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: COLORS.primary02,
+    borderRadius: 40,
+    zIndex: 0,
   },
 });
 

@@ -19,7 +19,7 @@ const LeagueCard = ({leagueTitle, leagueImage, matchupData}) => {
         color:"#000",
         border: 16,
         radius: 10,
-        opacity: .05,
+        opacity: .06,
         x: 0,
         y: 4,
         style:{
