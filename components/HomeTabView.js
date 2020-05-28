@@ -2,50 +2,40 @@ import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import { TabView, SceneMap, TabBar, ScrollPager } from 'react-native-tab-view';
 import COLORS from '../global-styles/Colors.js';
-import RecText from './RecText.js';
+import RecTextMedium from './RecTextBold.js';
 import HomeScreen from '../home-stack/HomeScreen';
+import typeStyles from '../global-styles/typeStyles';
 
 const width = Dimensions.get('window').width;
 
 const HomeTabView = () => {
 
-  const FirstRoute = () => (
-    <HomeScreen/>
-  );
-  
-  const SecondRoute = () => (
-    <HomeScreen/>
-  );
-
-  const ThirdRoute = () => (
-    <HomeScreen/>
-  );
-
-  const FourthRoute = () => (
-    <HomeScreen/>
-  );
-
-  const FifthRoute = () => (
-    <HomeScreen/>
-  );
-
   const [index, setIndex] = React.useState(0);
 
   const [routes] = React.useState([
     { key: 'first', title: 'YESTERDAY' },
-    { key: 'second', title: 'TODAY' },
-    { key: 'third', title: 'TOMORROW' },
+    { key: 'second', title: 'YESTERDAY' },
+    { key: 'third', title: 'TODAY' },
     { key: 'fourth', title: 'TOMORROW' },
     { key: 'fifth', title: 'TOMORROW' },
   ]);
 
-  const renderScene = SceneMap({
-    first: FirstRoute,
-    second: SecondRoute,
-    third: ThirdRoute,
-    fourth: FourthRoute,
-    fifth: FifthRoute,
-  });
+  const renderScene = ({ route }) => {
+    switch (route.key) {
+      case 'first':
+        return <HomeScreen />;
+      case 'second':
+        return <HomeScreen />;
+      case 'third':
+        return <HomeScreen />;
+      case 'fourth':
+        return <HomeScreen />;
+      case 'fifth':
+        return <HomeScreen />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <TabView
@@ -57,13 +47,13 @@ const HomeTabView = () => {
             style={styles.barStyle}
             inactiveColor={COLORS.primary02}
             activeColor={COLORS.primary01}
-            tabStyle={{width:100}}
+            tabStyle={{width:'auto'}}
             scrollEnabled={true}
             bounces={true}
             renderLabel={({ route, focused, color }) => (
-              <RecText style={{ color }}>
+              <RecTextMedium style={{ color, fontSize: 18 }}>
                 {route.title}
-              </RecText>
+              </RecTextMedium>
             )}
           />
         </View>

@@ -7,11 +7,11 @@ import { typeStyles } from '../global-styles/typeStyles.js';
 
 const fetchFonts = () => {
     return Font.loadAsync({
-        'recursive-regular': require('../assets/fonts/RecursiveSansLinearB027st-Rg.ttf'),
+        'recursive-bold': require('../assets/fonts/RecursiveSansLinearB027st-Bd.ttf'),
     });
 }
 
-const RecText = (props) => {
+const RecTextBold = (props) => {
 
     const [dataLoaded, setDataLoaded] = useState(false);
 
@@ -25,10 +25,10 @@ const RecText = (props) => {
     }
 
     return (
-        <Text style={[{fontFamily: 'recursive-regular', fontSize: 14, color: COLORS.gray01, ...props.style}]}>
+        <Text style={[{fontFamily: 'recursive-bold', fontSize: 14, color: COLORS.gray01, ...props.style}]}>
             {props.children}
         </Text>
     );
 };
 
-export default RecText;
+export default RecTextBold;
