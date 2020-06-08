@@ -89,7 +89,7 @@ const HomeCards = () => {
   const items = leagues();
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} pointerEvents={'box-none'}>
       <FlatList
         contentContainerStyle={styles.flatList}
         showsVerticalScrollIndicator={false}

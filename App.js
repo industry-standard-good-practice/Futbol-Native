@@ -30,26 +30,26 @@ const TabNavigator = createBottomTabNavigator(
   {
     tabBarComponent: props =>
       <CustomTabBar {...props}/>,
-    tabBarOptions: {
-      style: {
-        width: width-30,
-        height: 85,
-        paddingBottom: 10,
-        alignSelf: 'center',
-        overflow: 'hidden',
-        backgroundColor: COLORS.primary01,
-        fontFamily: 'recursive-regular',
-        fontWeight: '200',
-        borderRadius: 10,
+      tabBarOptions: {
+        style: {
+          width: width-30,
+          height: 85,
+          paddingBottom: 10,
+          alignSelf: 'center',
+          overflow: 'hidden',
+          backgroundColor: COLORS.primary01,
+          fontFamily: 'recursive-regular',
+          fontWeight: '200',
+          borderRadius: 10,
+        },
+        labelStyle: {
+          fontFamily: 'recursive-regular',
+          fontWeight: '200',
+        },
       },
-      labelStyle: {
-        fontFamily: 'recursive-regular',
-        fontWeight: '200',
-      },
-    },
-    navigationOptions: {
-      animationEnabled: true,
-    }
+      navigationOptions: {
+        animationEnabled: true,
+      }
   },
 );
 

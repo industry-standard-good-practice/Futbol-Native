@@ -70,7 +70,7 @@ const HomeTabView = () => {
       navigationState={{ index, routes }}
       renderScene={renderScene}
       onIndexChange={setIndex}
-      style={[{flex: 1}, {backgroundColor: 'white'}, {zIndex: 0}]}
+      style={[{flex: 1}, {backgroundColor: 'white'}, {zIndex: 2}]}
       sceneContainerStyle={{zIndex:99999, marginTop: -100, backgroundColor: 'rgba(0,0,0,0)'}}
       initialLayout={{ width: width }}
     />
@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
   tabWrap: {
     flexDirection: 'row',
     justifyContent: 'center',
+    zIndex: 0,
   },
   barStyle: {
     width: width-120,
@@ -92,7 +93,6 @@ const styles = StyleSheet.create({
     marginTop: 50,
     shadowColor: 'transparent',
     elevation: 0,
-    zIndex: 0,
     overflow: 'hidden'
   },
   icon: {
@@ -109,7 +109,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: COLORS.primary02,
     borderRadius: 40,
-    zIndex: 0,
   },
   iconContainRight: {
     zIndex: 9,
@@ -122,7 +121,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: COLORS.primary02,
     borderRadius: 40,
-    zIndex: 0,
   },
 });
 
