@@ -3,7 +3,7 @@ import { View, StyleSheet, Dimensions, StatusBar } from 'react-native';
 import { TabView, TabBar } from 'react-native-tab-view';
 import COLORS from '../global-styles/Colors.js';
 import RecTextMedium from './RecTextBold.js';
-import HomeScreen from './HomeCards';
+import HomeCards from './HomeCards';
 import SearchIcon from '../assets/icons/SearchIcon.svg';
 import SettingIcon from '../assets/icons/SettingIcon.svg';
 import Ripple from 'react-native-material-ripple';
@@ -25,15 +25,15 @@ const HomeTabView = () => {
   const renderScene = ({ route }) => {
     switch (route.key) {
       case 'first':
-        return <HomeScreen />;
+        return <HomeCards />;
       case 'second':
-        return <HomeScreen />;
+        return <HomeCards />;
       case 'third':
-        return <HomeScreen />;
+        return <HomeCards />;
       case 'fourth':
-        return <HomeScreen />;
+        return <HomeCards />;
       case 'fifth':
-        return <HomeScreen />;
+        return <HomeCards />;
       default:
         return null;
     }
@@ -71,7 +71,7 @@ const HomeTabView = () => {
       renderScene={renderScene}
       onIndexChange={setIndex}
       style={[{flex: 1}, {backgroundColor: 'white'}, {zIndex: 2}]}
-      sceneContainerStyle={{zIndex:99999, marginTop: -100, backgroundColor: 'rgba(0,0,0,0)'}}
+      sceneContainerStyle={{zIndex:9, marginTop: -100, backgroundColor: 'rgba(0,0,0,0)'}}
       initialLayout={{ width: width }}
     />
   );

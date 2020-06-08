@@ -91,6 +91,7 @@ const HomeCards = () => {
   return (
     <View style={styles.container} pointerEvents={'box-none'}>
       <FlatList
+        pointerEvents={'box-none'}
         contentContainerStyle={styles.flatList}
         showsVerticalScrollIndicator={false}
         decelerationRate={0.998}

@@ -17,7 +17,6 @@ const HomeScreen = () => {
       <Ripple style={styles.iconContainRight} rippleColor={COLORS.primary01} rippleOverflow={true}>
         <SettingIcon style={styles.icon}/>
       </Ripple>
-      <HomeTabView/>
     </View>
   );
 }
