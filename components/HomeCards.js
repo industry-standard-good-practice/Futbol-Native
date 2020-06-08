@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     overflow: 'visible',
     padding: 0,
-    margin: 0,
+    marginTop: -100,
   },
   flatList: {
     flexGrow: 1,

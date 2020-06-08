@@ -71,7 +71,7 @@ const HomeTabView = () => {
       renderScene={renderScene}
       onIndexChange={setIndex}
       style={[{flex: 1}, {backgroundColor: 'white'}, {zIndex: 2}]}
-      sceneContainerStyle={{zIndex:9, marginTop: -100, backgroundColor: 'rgba(0,0,0,0)'}}
+      sceneContainerStyle={{zIndex:9, backgroundColor: 'rgba(0,0,0,0)', overflow: 'visible'}}
       initialLayout={{ width: width }}
     />
   );
