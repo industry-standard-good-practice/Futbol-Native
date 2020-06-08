@@ -1,7 +1,7 @@
 import React, {useState, useCallback} from 'react';
 import {StyleSheet, FlatList, View, Dimensions} from 'react-native';
 import RecText from '../components/RecText.js'
-import {v4 as uuidv4} from 'uuid'
+import uuid from 'uuid-random'
 
 const width = Dimensions.get('window').width;
 const cardWidth = width-32;
@@ -15,7 +15,7 @@ const LineupText = ({lineupData}) => {
                 renderItem={({item}) => (
                     <RecText style={styles.itemText}>{item.shirt}. {item.name}</RecText>
                 )}
-                listKey={uuidv4()}
+                listKey={uuid()}
             />
             <FlatList
                 maxToRenderPerBatch={6}
@@ -23,7 +23,7 @@ const LineupText = ({lineupData}) => {
                 renderItem={({item}) => (
                     <RecText style={styles.itemText}>{item.shirt}. {item.name}</RecText>
                 )}
-                listKey={uuidv4()}
+                listKey={uuid()}
             />
         </View>
     );

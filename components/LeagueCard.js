@@ -3,7 +3,7 @@ import {StyleSheet, View, FlatList, Dimensions} from 'react-native';
 import {BoxShadow} from 'react-native-shadow';
 import LeagueTopper from '../components/LeagueTopper.js';
 import Matchup from '../components/Matchup';
-import {v4 as uuidv4} from 'uuid';
+import uuid from 'uuid-random'
 import useComponentSize from '../functions/useComponentSize.js';
 
 const width = Dimensions.get('window').width;
@@ -36,7 +36,7 @@ const LeagueCard = ({leagueTitle, leagueImage, matchupData}) => {
                 </View>
                 <FlatList 
                     style={styles.flatList}
-                    listKey={uuidv4()}
+                    listKey={uuid()}
                     data={matchupData}
                     renderItem={({item}) => (
                         <View style={{marginBottom: 10, overflow:"visible", width: cardWidth}}>
