@@ -3,6 +3,7 @@ import { StyleSheet, View, FlatList, StatusBar } from 'react-native';
 import FavCard from './FavCard';
 import LeagueCard from './LeagueCard';
 import LEAGUEIMAGES from '../global-styles/leagueImages.js';
+import { TouchThroughView, TouchThroughWrapper } from 'react-native-touch-through-view';
 import uuid from 'uuid-random'
 
 const HomeCards = () => {

@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   barStyle: {
     width: width-120,
     height: 50,
-    backgroundColor: null,
+    backgroundColor: 'transparent',
     marginTop: 50,
     shadowColor: 'transparent',
     elevation: 0,
