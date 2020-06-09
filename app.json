@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Futbol-Native",
-    "slug": "Futbol-Native",
+    "name": "Fútbol",
+    "slug": "fútbol-native",
     "platforms": [
       "ios",
       "android",
@@ -22,7 +22,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.industrystandard.futbol",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.industrystandard.futbol",
+      "versionCode": 1
     },
     "packagerOpts": {
       "config": "metro.config.js",
