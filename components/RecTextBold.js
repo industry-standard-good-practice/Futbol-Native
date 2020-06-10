@@ -3,7 +3,6 @@ import {Text} from 'react-native';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import COLORS from '../global-styles/Colors.js';
-import { typeStyles } from '../global-styles/typeStyles.js';
 
 const fetchFonts = () => {
     return Font.loadAsync({

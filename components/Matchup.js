@@ -2,14 +2,12 @@ import React from 'react';
 import {StyleSheet, View, Image, TouchableOpacity} from 'react-native';
 import RecText from '../components/RecText.js'
 import {typeStyles} from '../global-styles/typeStyles.js'
-import {useNavigation} from 'react-navigation-hooks'
 import Ripple from 'react-native-material-ripple'
 import COLORS from '../global-styles/Colors'
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const Matchup = ({homeTeam, awayTeam, timeScore}) => {
-
-    const { navigate } = useNavigation();
-
+const Matchup = ({homeTeam, awayTeam, timeScore, navigation}) => {
     return (
         <Ripple 
             style={styles.mainContain}
@@ -17,7 +15,7 @@ const Matchup = ({homeTeam, awayTeam, timeScore}) => {
             rippleSize={100}
             rippleColor={COLORS.primary01}
             onPress={() => {
-                navigate('News');
+                navigation.navigate('Details');
             }}
         >
             <View style={styles.leftContain}>

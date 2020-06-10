@@ -1,10 +1,9 @@
 import React from 'react';
 import { View, Text, Dimensions } from 'react-native';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import {createBottomTabNavigator} from 'react-navigation-tabs';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
-import HomeScreen from './home-stack/HomeScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import HomeTabView from './components/HomeTabView'
 import COLORS from './global-styles/Colors';
 import CustomTabBar from './components/CustomTabBar';
@@ -21,16 +20,29 @@ class DetailsScreen extends React.Component {
   }
 }
 
-const TabNavigator = createBottomTabNavigator(
-  {
-    Matches: HomeTabView,
-    News: DetailsScreen,
-    Calendar: DetailsScreen,
-  },
-  {
-    tabBarComponent: props =>
-      <CustomTabBar {...props}/>,
-      tabBarOptions: {
+const HomeStack = createStackNavigator();
+
+const HomeStackScreen = () => {
+  return(
+    <HomeStack.Navigator
+      screenOptions = {{
+        headerShown: false
+      }}
+    >
+      <HomeStack.Screen name='Matches' component={HomeTabView} />
+      <HomeStack.Screen name='Details' component={DetailsScreen} />
+    </HomeStack.Navigator>
+  )
+}
+
+const TabNavigator = createBottomTabNavigator();
+
+const TabNav = () => {
+  return (
+    <TabNavigator.Navigator
+      initialRouteName='Matches'
+      tabBar={props => <CustomTabBar {...props}/>}
+      tabBarOptions={{
         style: {
           width: width-30,
           height: 85,
@@ -46,33 +58,33 @@ const TabNavigator = createBottomTabNavigator(
           fontFamily: 'recursive-regular',
           fontWeight: '200',
         },
-      },
-      navigationOptions: {
+      }}
+      navigationOptions={{
         animationEnabled: true,
-      }
-  },
-);
-
-const AppNavigator = createStackNavigator(
-  {
-    Home: HomeScreen,
-    Details: DetailsScreen,
-  },
-  {
-    initialRouteName: 'Home',
-    headerMode: 'none',
-    navigationOptions: {
-      headerVisible: false,
-    }
-  },
-);
-
-const AppContainer = createAppContainer(TabNavigator);
+      }}
+    >
+      <TabNavigator.Screen 
+        name='Matches'
+        component={HomeStackScreen}
+      />
+      <TabNavigator.Screen 
+        name='News'
+        component={DetailsScreen}
+      />
+      <TabNavigator.Screen 
+        name='Calendar'
+        component={DetailsScreen}
+      />
+    </TabNavigator.Navigator>
+  )
+};
 
 const App = () => {
   return(
     <SafeAreaProvider>
-      <AppContainer />
+      <NavigationContainer>
+        <TabNav />
+      </NavigationContainer>
     </SafeAreaProvider>
   )
 }

@@ -3,10 +3,9 @@ import { StyleSheet, View, FlatList, StatusBar } from 'react-native';
 import FavCard from './FavCard';
 import LeagueCard from './LeagueCard';
 import LEAGUEIMAGES from '../global-styles/leagueImages.js';
-import Animated from 'react-native-reanimated';
 import uuid from 'uuid-random'
 
-const HomeCards = () => {
+const HomeCards = ({navigation}) => {
 
   const homeLineup = [
     {shirt: '1', name: 'David De Gea', key: uuid()},
@@ -46,6 +45,7 @@ const HomeCards = () => {
         matchupData={
           {key: uuid(), homeTeam:{name: 'Man United', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '9:00 AM', awayTeam: {name: 'Arsenal', crest:(require('../assets/card/bumnalCrest.png'))}}
         }
+        navigation={navigation}
       />},
       {key: uuid(), card: <LeagueCard
         leagueTitle='Premier League'
@@ -54,6 +54,7 @@ const HomeCards = () => {
           {key: uuid(), homeTeam:{name: 'Watford', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '9:00 AM', awayTeam: {name: 'Chelsea', crest:(require('../assets/card/bumnalCrest.png'))}},
           {key: uuid(), homeTeam:{name: 'West Ham', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '11:00 AM', awayTeam: {name: 'Tottenham', crest:(require('../assets/card/bumnalCrest.png'))}},
         ]}
+        navigation={navigation}
       />},
       {key: uuid(), card: <LeagueCard
         leagueTitle='Premier League'
@@ -62,6 +63,7 @@ const HomeCards = () => {
           {key: uuid(), homeTeam:{name: 'Watford', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '9:00 AM', awayTeam: {name: 'Chelsea', crest:(require('../assets/card/bumnalCrest.png'))}},
           {key: uuid(), homeTeam:{name: 'West Ham', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '11:00 AM', awayTeam: {name: 'Tottenham', crest:(require('../assets/card/bumnalCrest.png'))}},
         ]}
+        navigation={navigation}
       />},{key: uuid(), card: <LeagueCard
         leagueTitle='Premier League'
         leagueImage={LEAGUEIMAGES.premImage}
@@ -69,6 +71,7 @@ const HomeCards = () => {
           {key: uuid(), homeTeam:{name: 'Watford', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '9:00 AM', awayTeam: {name: 'Chelsea', crest:(require('../assets/card/bumnalCrest.png'))}},
           {key: uuid(), homeTeam:{name: 'West Ham', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '11:00 AM', awayTeam: {name: 'Tottenham', crest:(require('../assets/card/bumnalCrest.png'))}},
         ]}
+        navigation={navigation}
       />},{key: uuid(), card: <LeagueCard
         leagueTitle='Premier League'
         leagueImage={LEAGUEIMAGES.premImage}
@@ -76,6 +79,7 @@ const HomeCards = () => {
           {key: uuid(), homeTeam:{name: 'Watford', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '9:00 AM', awayTeam: {name: 'Chelsea', crest:(require('../assets/card/bumnalCrest.png'))}},
           {key: uuid(), homeTeam:{name: 'West Ham', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '11:00 AM', awayTeam: {name: 'Tottenham', crest:(require('../assets/card/bumnalCrest.png'))}},
         ]}
+        navigation={navigation}
       />},{key: uuid(), card: <LeagueCard
         leagueTitle='Premier League'
         leagueImage={LEAGUEIMAGES.premImage}
@@ -83,6 +87,7 @@ const HomeCards = () => {
           {key: uuid(), homeTeam:{name: 'Watford', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '9:00 AM', awayTeam: {name: 'Chelsea', crest:(require('../assets/card/bumnalCrest.png'))}},
           {key: uuid(), homeTeam:{name: 'West Ham', crest:(require('../assets/card/manUnitedCrest.png'))}, timeScore: '11:00 AM', awayTeam: {name: 'Tottenham', crest:(require('../assets/card/bumnalCrest.png'))}},
         ]}
+        navigation={navigation}
       />},
     ])
   }

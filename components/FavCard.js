@@ -10,7 +10,7 @@ import useComponentSize from '../functions/useComponentSize.js';
 const width = Dimensions.get('window').width;
 const cardWidth = width-32;
 
-const FavCard = ({leagueTitle, leagueImage, homeLineup, awayLineup, matchupData}) => {
+const FavCard = ({leagueTitle, leagueImage, homeLineup, awayLineup, matchupData, navigation}) => {
 
     const [size, onLayout] = useComponentSize();
 
@@ -38,6 +38,7 @@ const FavCard = ({leagueTitle, leagueImage, homeLineup, awayLineup, matchupData}
                         homeTeam={matchupData.homeTeam}
                         timeScore={matchupData.timeScore}
                         awayTeam={matchupData.awayTeam}
+                        navigation={navigation}
                     />
                 </View>
                 <FavCardTabView

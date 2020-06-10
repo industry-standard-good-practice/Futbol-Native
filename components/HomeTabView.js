@@ -12,7 +12,7 @@ import Ripple from 'react-native-material-ripple';
 const width = Dimensions.get('window').width;
 const headerHeight = 100;
 
-const HomeTabView = () => {
+const HomeTabView = ({navigation}) => {
 
   const [index, setIndex] = React.useState(2);
 
@@ -27,15 +27,15 @@ const HomeTabView = () => {
   const renderScene = ({ route }) => {
     switch (route.key) {
       case 'first':
-        return <HomeCards />;
+        return <HomeCards navigation={navigation}/>;
       case 'second':
-        return <HomeCards />;
+        return <HomeCards navigation={navigation}/>;
       case 'third':
-        return <HomeCards />;
+        return <HomeCards navigation={navigation}/>;
       case 'fourth':
-        return <HomeCards />;
+        return <HomeCards navigation={navigation}/>;
       case 'fifth':
-        return <HomeCards />;
+        return <HomeCards navigation={navigation}/>;
       default:
         return null;
     }

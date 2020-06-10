@@ -9,7 +9,7 @@ import useComponentSize from '../functions/useComponentSize.js';
 const width = Dimensions.get('window').width;
 const cardWidth = width-32;
 
-const LeagueCard = ({leagueTitle, leagueImage, matchupData}) => {
+const LeagueCard = ({leagueTitle, leagueImage, matchupData, navigation}) => {
 
     const [size, onLayout] = useComponentSize();
 
@@ -44,6 +44,7 @@ const LeagueCard = ({leagueTitle, leagueImage, matchupData}) => {
                                 homeTeam={item.homeTeam}
                                 awayTeam={item.awayTeam}
                                 timeScore={item.timeScore}
+                                navigation={navigation}
                             />
                         </View>
                     )}
