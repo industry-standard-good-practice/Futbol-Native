@@ -1,5 +1,6 @@
-import React from 'react';
-import { View, StyleSheet, Dimensions, StatusBar } from 'react-native';
+import React, { useRef } from 'react';
+import { View, StyleSheet, Dimensions, StatusBar, ScrollView } from 'react-native';
+import Animated from 'react-native-reanimated';
 import { TabView, TabBar } from 'react-native-tab-view';
 import COLORS from '../global-styles/Colors.js';
 import RecTextMedium from './RecTextBold.js';
@@ -9,6 +10,7 @@ import SettingIcon from '../assets/icons/SettingIcon.svg';
 import Ripple from 'react-native-material-ripple';
 
 const width = Dimensions.get('window').width;
+const headerHeight = 100;
 
 const HomeTabView = () => {
 
@@ -42,7 +44,7 @@ const HomeTabView = () => {
   return (
     <TabView
       renderTabBar={props =>
-        <View style={styles.tabWrap}>
+        <Animated.View style={styles.tabWrap}>
           <StatusBar translucent={true} animated={true} backgroundColor={'rgba(0,0,0,0)'} barStyle={'dark-content'}/>
           <Ripple style={styles.iconContainLeft} rippleColor={COLORS.primary01} rippleOverflow={true}>
             <SearchIcon style={styles.icon}/>
@@ -65,13 +67,13 @@ const HomeTabView = () => {
               </RecTextMedium>
             )}
           />
-        </View>
+        </Animated.View>
       }
       navigationState={{ index, routes }}
       renderScene={renderScene}
       onIndexChange={setIndex}
-      style={[{flex: 1}, {backgroundColor: 'white'}, {zIndex: 2}]}
-      sceneContainerStyle={{zIndex:9, backgroundColor: 'rgba(0,0,0,0)', overflow: 'visible'}}
+      style={[{flex: 1}, {backgroundColor: 'white'}]}
+      sceneContainerStyle={{zIndex: 9, backgroundColor: 'rgba(0,0,0,0)', overflow: 'visible', paddingTop: 100}}
       initialLayout={{ width: width }}
     />
   );
@@ -81,7 +83,17 @@ const styles = StyleSheet.create({
   scene: {
     flex: 0,
   },
+  cardContain: {
+    marginTop: -100,
+    paddingTop: 120,
+  },
   tabWrap: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    backgroundColor: 'white',
+    paddingBottom: 120,
+    height: headerHeight,
     flexDirection: 'row',
     justifyContent: 'center',
     zIndex: 0,
@@ -93,13 +105,12 @@ const styles = StyleSheet.create({
     marginTop: 50,
     shadowColor: 'transparent',
     elevation: 0,
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   icon: {
     color: COLORS.primary01,
   },
   iconContainLeft: {
-    zIndex: 9,
     position: 'absolute',
     top: 55,
     left: 18,
@@ -111,7 +122,6 @@ const styles = StyleSheet.create({
     borderRadius: 40,
   },
   iconContainRight: {
-    zIndex: 9,
     position: 'absolute',
     top: 55,
     right: 18,

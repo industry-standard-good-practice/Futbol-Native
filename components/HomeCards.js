@@ -3,7 +3,7 @@ import { StyleSheet, View, FlatList, StatusBar } from 'react-native';
 import FavCard from './FavCard';
 import LeagueCard from './LeagueCard';
 import LEAGUEIMAGES from '../global-styles/leagueImages.js';
-import { TouchThroughView, TouchThroughWrapper } from 'react-native-touch-through-view';
+import Animated from 'react-native-reanimated';
 import uuid from 'uuid-random'
 
 const HomeCards = () => {
@@ -90,12 +90,12 @@ const HomeCards = () => {
   const items = leagues();
 
   return (
-    <View style={styles.container} pointerEvents={'box-none'}>
+    <View style={styles.container}>
       <FlatList
-        pointerEvents={'box-none'}
         contentContainerStyle={styles.flatList}
         showsVerticalScrollIndicator={false}
         decelerationRate={0.998}
+        scrollEnabled={true}
         data={items}
         renderItem={({item}) => <View>{item.card}</View>}
       />
